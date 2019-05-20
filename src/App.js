@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
@@ -6,8 +6,6 @@ import { withRouter } from 'react-router-dom'
 import Routes from './routes'
 
 import { getItems } from './app/actions/index'
-
-import ListComponent from './app/components/listComponent'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -34,14 +32,9 @@ class App extends Component {
 
 
   render () {
-    const { getItems } = this.props
-    const { url } = this.state
-    const childProps = {
-      url: url
-    }
     return (
       <Routes />
-    );
+    )
   }
 }
 
