@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 
 const ListComponent = ({ listItems }) => {
 	return (
@@ -10,7 +11,7 @@ const ListComponent = ({ listItems }) => {
 	            <img src={item.url} className="card-img-top" alt={item.id} />
 	            <div className="card-body">
 	              <h5 className="card-title">{item.id}</h5>
-	              <a href="#" className="btn btn-primary">Go somewhere</a>
+	              <Link to="/item" className="btn btn-primary">Go somewhere</Link>
 	            </div>
 	          </div>
 	        </div>
