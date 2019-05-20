@@ -6,7 +6,6 @@ import { Link, withRouter } from 'react-router-dom'
 class ListComponent extends Component {
 	render () {
 		const { getItems } = this.props
-		console.log(this.props)
 		return (
 			<Fragment>
 				{getItems && getItems.length > 0 && getItems.map((item, index) => {
