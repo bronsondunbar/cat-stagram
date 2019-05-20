@@ -5,33 +5,30 @@ import { withRouter } from 'react-router-dom'
 
 import Routes from './routes'
 
-import { getItems } from './app/actions/index'
+import { getUsers, getItems } from './app/actions/index'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-class App extends Component {
+import './style.css'
 
+class App extends Component {
   constructor(props) {
     super(props)
-
-    this.state = {
-      url: process.env.PUBLIC_URL
-    }
   }
 
   async componentDidMount () {
     const { dispatch } = this.props
-    // fetch("https://api.thecatapi.com/api/images/get?format=json&results_per_page=10&size=small&type=png")
-    //   .then(function(response) {
-    //     return response.json()
-    //   })
-    //   .then(function(data) {
-    //     dispatch(getItems(data))
-    //   })
+    fetch("https://randomuser.me/api/?results=250")
+      .then(function(response) {
+        return response.json()
+      })
+      .then(function(data) {
+        dispatch(getUsers(data.results))
+      })
 
-    const request = new Request('https://api.thecatapi.com/v1/breeds?limit=250', {
+    const request = new Request("https://api.thecatapi.com/v1/images/search?limit=10&size=small", {
       headers: new Headers({
-        'x-api-key': '15bd9057-cbff-4df5-a01c-bc875c2e55a2'
+        "x-api-key": "15bd9057-cbff-4df5-a01c-bc875c2e55a2"
       })
     })
 
@@ -48,7 +45,9 @@ class App extends Component {
 
   render () {
     return (
-      <Routes />
+      <div className="container">
+        <Routes />
+      </div>
     )
   }
 }
