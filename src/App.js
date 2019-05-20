@@ -40,11 +40,7 @@ class App extends Component {
       url: url
     }
     return (
-      <div className="container">
-        {/*<h1>Cat-stagram</h1>
-        <h2>Insgram just for cats!</h2>*/}
-        <Routes childProps={childProps} />
-      </div>
+      <Routes />
     );
   }
 }
