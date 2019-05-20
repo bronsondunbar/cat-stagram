@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-const ListItem = ({ id }) => {
+const ListItem = () => {
 	return (
 		<div>
 			<h1>List item</h1>

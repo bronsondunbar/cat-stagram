@@ -35,17 +35,15 @@ class App extends Component {
 
   render () {
     const { getItems } = this.props
+    const { url } = this.state
+    const childProps = {
+      url: url
+    }
     return (
       <div className="container">
-        <h1>Cat-stagram</h1>
-        <h2>Insgram just for cats!</h2>
-
-        <div className="row">
-          <ListComponent
-            listItems={getItems}
-          />
-        </div>
-        <Routes />
+        {/*<h1>Cat-stagram</h1>
+        <h2>Insgram just for cats!</h2>*/}
+        <Routes childProps={childProps} />
       </div>
     );
   }
@@ -55,11 +53,4 @@ App.propTypes = {
   dispatch: PropTypes.func.isRequired
 }
 
-function mapStateToProps(state) {
-  const { GetItems } = state.rootReducer
-  return {
-    getItems: GetItems
-  }
-}
-
-export default withRouter(connect(mapStateToProps)(App))
+export default withRouter(connect()(App))
