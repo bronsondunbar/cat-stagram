@@ -7,7 +7,7 @@ import configureStore from './store'
 import * as serviceWorker from './serviceWorker'
 
 import './index.css'
-import App from './App'
+import App from './app'
 
 const history = createHistory()
 const store = configureStore(history)
