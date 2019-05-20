@@ -1,4 +1,3 @@
-
 export function getUsers (data) {
 	return {
 		type: 'GET_USERS',
@@ -6,10 +5,16 @@ export function getUsers (data) {
 	}
 }
 
-
 export function getItems (data) {
 	return {
 		type: 'GET_ITEMS',
+		payload: data
+	}
+}
+
+export function getItem (data) {
+	return {
+		type: 'GET_ITEM',
 		payload: data
 	}
 }

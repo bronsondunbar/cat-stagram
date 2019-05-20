@@ -7,5 +7,5 @@ import ListItem from './app/components/listItem'
 export default () =>
   <Switch>
     <Route path="/" exact component={DefaultPage} />
-  	<Route path="/item/:id" exact component={ListItem} />
+  	<Route path="/item/:id/:index" exact component={ListItem} />
   </Switch>

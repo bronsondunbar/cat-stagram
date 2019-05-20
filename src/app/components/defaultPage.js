@@ -4,6 +4,18 @@ import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 
 class defaultPage extends Component {
+	constructor(props) {
+    super(props)
+
+    this.goToItem = this.goToItem.bind(this)
+  }
+
+	goToItem (e, id, index) {
+		console.log(id)
+		console.log(index)
+		this.props.history.push(`/item/${id}/${index}`)
+	}
+
 	render () {
 		const { getUsers, getItems } = this.props
 		return (
@@ -39,7 +51,12 @@ class defaultPage extends Component {
 					            <div className="card-body">
 					              <h5 className="card-title">Image {index}</h5>
 					              <p>This is the description for Image {index}, it's a really cool image, bask in its gloriousness</p>
-					              <Link to={`/item/${item.id}`} className="btn btn-primary">Find out more</Link>
+					              <button
+					              	type="button"
+					              	className="btn btn-primary"
+					              	onClick={(e) => this.goToItem(e, item.id, index)}>
+					              	Find out more
+					              </button>
 					            </div>
 					          </div>
 					        </div>
