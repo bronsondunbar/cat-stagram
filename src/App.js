@@ -15,7 +15,7 @@ class App extends Component {
 
   async componentDidMount () {
     const { dispatch } = this.props
-    fetch("https://api.thecatapi.com/api/images/get?format=json&results_per_page=250&size=small&type=png")
+    fetch("https://api.thecatapi.com/api/images/get?format=json&results_per_page=10&size=small&type=png")
       .then(function(response) {
         return response.json()
       })
