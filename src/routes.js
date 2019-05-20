@@ -6,6 +6,6 @@ import ListItem from './app/components/listItem'
 
 export default ({ childProps }) =>
   <Switch>
-    <Route path="/" component={ListComponent} />
+    <Route path="/" component={ListComponent} props={childProps} />
   	<Route path="/item" component={ListItem} />
   </Switch>
