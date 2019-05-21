@@ -2,12 +2,12 @@ import { combineReducers } from 'redux'
 
 import GetUsers from './getUsers'
 import GetItems from './getItems'
-import ItemDetails from './itemDetails'
+import GetItemDetails from './GetItemDetails'
 
 const rootReducer = combineReducers ({
 	GetUsers,
 	GetItems,
-	ItemDetails
+	GetItemDetails
 })
 
 export default rootReducer

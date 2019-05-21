@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import createHistory from 'history/createHashHistory'
+import { createBrowserHistory as createHistory } from 'history'
 
 import configureStore from './store'
 import * as serviceWorker from './serviceWorker'

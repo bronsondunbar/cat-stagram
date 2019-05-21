@@ -3,25 +3,14 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import { itemDetails } from '../actions/index'
+import { getItemDetails } from '../actions/index'
+
+import Loader from '../utils/loader'
 
 class ItemDetails extends Component {
-	async componentDidMount () {
-		const { match, dispatch } = this.props
-
-		const request = new Request(`https://api.thecatapi.com/v1/images/${match.params.id}`, {
-      headers: new Headers({
-        "x-api-key": "15bd9057-cbff-4df5-a01c-bc875c2e55a2"
-      })
-    })
-
-    fetch(request)
-      .then(function(response) {
-        return response.json()
-      })
-      .then(function(data) {
-      	dispatch(itemDetails(data))
-      })
+	componentWillUnmount () {
+		const { dispatch } = this.props
+		dispatch(getItemDetails())
 	}
 
 	render () {
@@ -30,9 +19,26 @@ class ItemDetails extends Component {
 
 		return (
 			<Fragment>
-				<img src={getItem.url} />
-				<h1>Image {index}</h1>
-				<p>This is the description for Image {index}, it's a really cool image, bask in its gloriousness</p>
+				{(!getItem && getItem.length === 0) &&
+					<Loader
+						status={"Please wait..."} />
+				}
+
+				<div className="row">
+					<div className="col">
+						<img
+							className="img-fluid"
+							alt={getItem.id}
+							src={getItem.url} />
+					</div>
+
+					<div className="col">
+		        <header>
+						  <h2>Image {index} details</h2>
+						  <p>This is the description for Image {index}, it's a really cool image, bask in its gloriousness</p>
+		        </header>
+		      </div>
+        </div>
 	    </Fragment>
 		)
 	}
@@ -43,9 +49,9 @@ ItemDetails.propTypes = {
 }
 
 function mapStateToProps(state) {
-  const { ItemDetails } = state.rootReducer
+  const { GetItemDetails } = state.rootReducer
   return {
-    itemDetails: ItemDetails
+    getItem: GetItemDetails
   }
 }
 

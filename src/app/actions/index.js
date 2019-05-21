@@ -12,9 +12,16 @@ export function getItems (data) {
 	}
 }
 
-export function itemDetails (data) {
-	return {
-		type: 'ITEM_DETAILS',
-		payload: data
+export function getItemDetails (data) {
+	if (data !== undefined) {
+		return {
+			type: 'GET_ITEM_DETAILS',
+			payload: data
+		}
+	} else {
+		return {
+			type: 'GET_ITEM_DETAILS',
+			payload: ''
+		}
 	}
 }

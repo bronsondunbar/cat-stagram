@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+
+import { getItemDetails } from '../actions/index'
 
 import ListItem from './listItem'
 
@@ -12,9 +14,27 @@ class defaultPage extends Component {
     this.goToItem = this.goToItem.bind(this)
   }
 
+  captilizeString (string) {
+  	return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
 	goToItem (e, id, index) {
-		console.log(id)
-		console.log(index)
+		const { dispatch } = this.props
+
+		const request = new Request(`https://api.thecatapi.com/v1/images/${id}`, {
+      headers: new Headers({
+        "x-api-key": "15bd9057-cbff-4df5-a01c-bc875c2e55a2"
+      })
+    })
+
+    fetch(request)
+      .then(function(response) {
+        return response.json()
+      })
+      .then(function(data) {
+      	dispatch(getItemDetails(data))
+      })
+
 		this.props.history.push(`/item/${id}/${index}`)
 	}
 
@@ -22,33 +42,31 @@ class defaultPage extends Component {
 		const { getUsers, getItems } = this.props
 		return (
 			<Fragment>
-				<header>
-					<h1>Cat-stagram</h1>
-				</header>
-
 				<div className="row">
 					<div className="col users">
-						<h2>Our top users</h2>
-						<ul className="list-group">
-							{getUsers && getUsers.length > 0 && getUsers.map((user, index) => {
-								return (
-									<li key={index} className="list-group-item">
-										{user.name.first}
-										{/*<img src={`http://placehold.it/2048&text=Item${index}”`} className="img-fluid" />
-										<p>Item {index}</p>
-										<p>This is the description for Item {index}</p>*/}
-									</li>
-								)
-							})}
-						</ul>
+						<div className="featured-users">
+							<h2>Top 250 users</h2>
+							<ul className="list-group">
+								{getUsers && getUsers.length > 0 && getUsers.map((user, index) => {
+									return (
+										<li key={index} className="list-group-item">
+											<img
+												className="img-fluid"
+												alt={user.name.first}
+												src={`http://placehold.it/30&text=Item${user.name.first}”`} /> {this.captilizeString(user.name.first)}
+										</li>
+									)
+								})}
+							</ul>
+						</div>
 					</div>
 
-					<div className="col-9">
-						<h2>Wall of fame</h2>
+					<div className="col-9 features-images">
 						<div className="row">
 							{getItems && getItems.length > 0 && getItems.map((item, index) => {
 					      return (
 					      	<ListItem
+					      		key={item.id}
 					      		index={index}
 					      		id={item.id}
 					      		image={item.url}
