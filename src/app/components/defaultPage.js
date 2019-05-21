@@ -22,9 +22,12 @@ class defaultPage extends Component {
 		const { getUsers, getItems } = this.props
 		return (
 			<Fragment>
-				<h1>Cat-stagram</h1>
+				<header>
+					<h1>Cat-stagram</h1>
+				</header>
+
 				<div className="row">
-					<div className="col">
+					<div className="col top-users">
 						<h2>Our top users</h2>
 						<ul className="list-group">
 							{getUsers && getUsers.length > 0 && getUsers.map((user, index) => {
@@ -42,7 +45,7 @@ class defaultPage extends Component {
 
 					<div className="col-9">
 						<h2>Wall of fame</h2>
-						<div className="row wall">
+						<div className="row feature">
 							{getItems && getItems.length > 0 && getItems.map((item, index) => {
 					      return (
 					      	<ListItem

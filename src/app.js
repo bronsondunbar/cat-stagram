@@ -9,7 +9,7 @@ import { getUsers, getItems } from './app/actions/index'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import './style.css'
+import './style.scss'
 
 class App extends Component {
   constructor(props) {
