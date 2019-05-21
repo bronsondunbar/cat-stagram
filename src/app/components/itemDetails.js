@@ -24,10 +24,11 @@ class ItemDetails extends Component {
 						status={"Please wait..."} />
 				}
 
-				<div className="row">
-					<div className="col">
+				<div className="row details">
+					<div className="col ">
 						<img
 							className="img-fluid"
+							loading="lazy"
 							alt={getItem.id}
 							src={getItem.url} />
 					</div>
@@ -35,8 +36,8 @@ class ItemDetails extends Component {
 					<div className="col">
 		        <header>
 						  <h2>Image {index} details</h2>
-						  <p>This is the description for Image {index}, it's a really cool image, bask in its gloriousness</p>
 		        </header>
+		        <p>This is the description for Image {index}, it's a really cool image, bask in its gloriousness</p>
 		      </div>
         </div>
 	    </Fragment>

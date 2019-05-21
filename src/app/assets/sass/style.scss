@@ -2,17 +2,24 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC&display=swap');
 
+$gray: #808080;
+$white: #ffffff;
+$pink1: #ed7591;
+$pink2: #f5b0b3;
+
+$blackBoxShadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.31);
+
 body {
 
 	font-family: 'Montserrat', sans-serif;
-	color: #808080;
+	color: $gray;
 
 }
 
 h1, h2, h3, h4, h5 {
 
 	font-family: 'Amatic SC', cursive;
-	color: #ed7591;
+	color: $pink1;
 
 }
 
@@ -63,14 +70,14 @@ img {
 	
 		max-height: 80vh;
 		overflow-y: scroll;
-		border: 1px solid #f5b0b3;
+		border: 1px solid $pink2;
 		border-radius: .25rem;
 		text-align: left;
 
 		.list-group-item {
 
 			border: none;
-			border-bottom: 1px solid #f5b0b3;
+			border-bottom: 1px solid $pink2;
 			margin-bottom: 0;
 
 			img {
@@ -114,13 +121,13 @@ img {
 
 			.btn-primary {
 
-				background: #ed7591;
-				border-color: #ed7591;
+				background: $pink1;
+				border-color: $pink1;
 
 				&:hover, &:focus {
 
-					background: darken(#ed7591, 20%);
-					border-color: darken(#ed7591, 20%);
+					background: darken($pink1, 20%);
+					border-color: darken($pink1, 20%);
 
 				}
 
@@ -132,9 +139,20 @@ img {
 
 }
 
+.details {
+
+	img {
+
+		box-shadow: $blackBoxShadow;
+		border-radius: .25rem;
+
+	}
+
+}
+
 .loader {
 
-	background: rgba(#ffffff, 0.8);
+	background: rgba($white, 0.8);
 	z-index: 9999;
 	position: absolute;
 	display: flex;
