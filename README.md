@@ -1,9 +1,9 @@
 ## Cat-Stagram!
 
-Please use the following steps to run this project locally
+Please run the following commands to run the project locally.
 
 `
-git clone 
+git clone https://github.com/bronsondunbar/cat-stagram
 npm install
 npm start
 `
