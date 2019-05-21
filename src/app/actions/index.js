@@ -12,9 +12,9 @@ export function getItems (data) {
 	}
 }
 
-export function getItem (data) {
+export function itemDetails (data) {
 	return {
-		type: 'GET_ITEM',
+		type: 'ITEM_DETAILS',
 		payload: data
 	}
 }

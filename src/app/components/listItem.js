@@ -3,37 +3,31 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import { getItem } from '../actions/index'
-
 class ListItem extends Component {
 	async componentDidMount () {
-		const { match, dispatch } = this.props
-
-		const request = new Request(`https://api.thecatapi.com/v1/images/${match.params.id}`, {
-      headers: new Headers({
-        "x-api-key": "15bd9057-cbff-4df5-a01c-bc875c2e55a2"
-      })
-    })
-
-    fetch(request)
-      .then(function(response) {
-        return response.json()
-      })
-      .then(function(data) {
-      	dispatch(getItem(data))
-      })
 	}
 
 	render () {
-		const { match, getItem } = this.props
-		let index = match.params.index
+		const { id, index, image, title, description, goToItem } = this.props
 
 		return (
-			<Fragment>
-				<img src={getItem.url} />
-				<h1>Image {index}</h1>
-				<p>This is the description for Image {index}, it's a really cool image, bask in its gloriousness</p>
-	    </Fragment>
+			<div key={id} className="col-4">
+        <div className="card">
+          <div
+            className="card-img-top"
+            style={{backgroundImage: `url(${image})`}} />
+          <div className="card-body">
+            <h5 className="card-title">{title}</h5>
+            <p>{description}</p>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={(e) => goToItem(e, id, index)}>
+              Find out more
+            </button>
+          </div>
+        </div>
+      </div>
 		)
 	}
 }
@@ -42,11 +36,4 @@ ListItem.propTypes = {
   dispatch: PropTypes.func.isRequired
 }
 
-function mapStateToProps(state) {
-  const { GetItem } = state.rootReducer
-  return {
-    getItem: GetItem
-  }
-}
-
-export default withRouter(connect(mapStateToProps)(ListItem))
+export default withRouter(connect()(ListItem))

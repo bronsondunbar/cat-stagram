@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 
+import ListItem from './listItem'
+
 class defaultPage extends Component {
 	constructor(props) {
     super(props)
@@ -43,23 +45,13 @@ class defaultPage extends Component {
 						<div className="row wall">
 							{getItems && getItems.length > 0 && getItems.map((item, index) => {
 					      return (
-					        <div key={item.id} className="col-4">
-					          <div className="card">
-					          	<div
-					          		className="card-img-top"
-					          		style={{backgroundImage: `url(${item.url})`}} />
-					            <div className="card-body">
-					              <h5 className="card-title">Image {index}</h5>
-					              <p>This is the description for Image {index}, it's a really cool image, bask in its gloriousness</p>
-					              <button
-					              	type="button"
-					              	className="btn btn-primary"
-					              	onClick={(e) => this.goToItem(e, item.id, index)}>
-					              	Find out more
-					              </button>
-					            </div>
-					          </div>
-					        </div>
+					      	<ListItem
+					      		index={index}
+					      		id={item.id}
+					      		image={item.url}
+					      		title={`Image ${index}`}
+					      		description={`This is the description for Image ${index}, it's a really cool image, bask in its gloriousness`}
+					      		goToItem={this.goToItem} />
 					      )
 					    })}
 				    </div>
