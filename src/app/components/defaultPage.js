@@ -27,7 +27,7 @@ class defaultPage extends Component {
 				</header>
 
 				<div className="row">
-					<div className="col top-users">
+					<div className="col users">
 						<h2>Our top users</h2>
 						<ul className="list-group">
 							{getUsers && getUsers.length > 0 && getUsers.map((user, index) => {
@@ -45,7 +45,7 @@ class defaultPage extends Component {
 
 					<div className="col-9">
 						<h2>Wall of fame</h2>
-						<div className="row feature">
+						<div className="row">
 							{getItems && getItems.length > 0 && getItems.map((item, index) => {
 					      return (
 					      	<ListItem
