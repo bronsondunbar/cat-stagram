@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom'
 import { getItemDetails } from '../actions/index'
 
 import ImageLoader from './imageLoader'
-import Loader from '../utils/loader'
 
 class ItemDetails extends Component {
 	componentWillUnmount () {
@@ -20,11 +19,6 @@ class ItemDetails extends Component {
 
 		return (
 			<Fragment>
-				{(!getItem && getItem.length === 0) &&
-					<Loader
-						status={"Please wait..."} />
-				}
-
 				<div className="row details">
 					<div className="col">
 						<ImageLoader

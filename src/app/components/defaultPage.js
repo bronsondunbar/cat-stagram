@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import { getItemDetails } from '../actions/index'
+import { getUsers, getItems, getItemDetails } from '../actions/index'
+
+import Loader from '../utils/loader'
 
 import ListItem from './listItem'
 
@@ -11,7 +13,45 @@ class defaultPage extends Component {
 	constructor(props) {
     super(props)
 
+    this.state = {
+      isLoading: false
+    }
+
     this.goToItem = this.goToItem.bind(this)
+  }
+
+  async componentDidMount () {
+    const { dispatch } = this.props
+
+    this.setState((state, props) => {
+      return { isLoading: true }
+    })
+
+    await fetch("https://randomuser.me/api/?results=250")
+      .then(function(response) {
+        return response.json()
+      })
+      .then(function(data) {
+        dispatch(getUsers(data.results))
+      })
+
+    const request = new Request("https://api.thecatapi.com/v1/images/search?limit=10&size=medium", {
+      headers: new Headers({
+        "x-api-key": "15bd9057-cbff-4df5-a01c-bc875c2e55a2"
+      })
+    })
+
+    await fetch(request)
+      .then(function(response) {
+        return response.json()
+      })
+      .then(function(data) {
+        dispatch(getItems(data))
+      })
+
+    this.setState((state, props) => {
+      return { isLoading: false }
+    })
   }
 
   captilizeString (string) {
@@ -40,8 +80,15 @@ class defaultPage extends Component {
 
 	render () {
 		const { getUsers, getItems } = this.props
+		const { isLoading } = this.state
+
 		return (
 			<Fragment>
+				{isLoading &&
+          <Loader
+            status={"Please wait..."} />
+        }
+
 				<div className="row">
 					<div className="col users">
 						<div className="featured-users">

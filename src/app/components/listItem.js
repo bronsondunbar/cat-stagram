@@ -6,8 +6,6 @@ import classNames from 'classnames'
 
 import ImageLoader from './imageLoader'
 
-import defaultSvg from '../assets/svg/default.svg'
-
 class ListItem extends Component {
 	render () {
 		const { id, index, imageSrc, imageTitle, imageDescription, goToItem } = this.props

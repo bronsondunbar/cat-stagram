@@ -10,7 +10,6 @@ const Header = ({ goHome }) => {
       	src={catStagramSvg}
         alt={"Cat-Stagram"}
       	onClick={(e) => goHome()} />
-      <h1>Cat-Stagram</h1>
       <h2>For the love of cats!</h2>
     </header>
   )

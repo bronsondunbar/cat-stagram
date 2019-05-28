@@ -3,8 +3,6 @@ import classNames from 'classnames'
 
 import Loader from '../utils/loader'
 
-import defaultSvg from '../assets/svg/default.svg'
-
 export default class imageLoader extends Component {
   constructor(props) {
     super(props)
