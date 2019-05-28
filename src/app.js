@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
@@ -24,11 +24,13 @@ class App extends Component {
 
   render () {
     return (
-      <div className="container">
+      <Fragment>
         <Header
           goHome={this.goHome} />
-        <Routes />
-      </div>
+        <div className="container">
+          <Routes />
+        </div>
+      </Fragment>
     )
   }
 }

@@ -20,17 +20,23 @@ class ItemDetails extends Component {
 		return (
 			<Fragment>
 				<div className="row featured-image-details">
-					<div className="col">
+					<div className="col-md-6 col-sm-12">
 						<ImageLoader
 							imageSrc={getItem.url}
 							imageTitle={getItem.id} />
 					</div>
 
-					<div className="col">
+					<div className="col-md-6 col-sm-12">
 		        <header>
 						  <h2>Image {index} details</h2>
 		        </header>
 		        <p>This is the description for Image {index}, it's a really cool image, bask in its gloriousness</p>
+		        <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => this.props.history.push("/")}>
+              Back
+            </button>
 		      </div>
         </div>
 	    </Fragment>

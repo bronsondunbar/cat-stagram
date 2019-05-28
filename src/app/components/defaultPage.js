@@ -110,7 +110,7 @@ class defaultPage extends Component {
 				<div className="row">
 					<div className="col users">
 						<div className={featuredUsersClass}>
-							<h2>Most Loved Users</h2>
+							<h4>Most Loved Users</h4>
 							<ul className="list-group">
 								{getUsers && getUsers.length > 0 && getUsers.map((user, index) => {
 									return (
