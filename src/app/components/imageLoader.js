@@ -16,10 +16,6 @@ export default class imageLoader extends Component {
 		const { imageSrc, imageTitle } = this.props
     const { imageLoaded } = this.state
 
-    const imageFadeOutClass = classNames("img-fluid", {
-      "fadeOut": imageLoaded === true
-    })
-
     const imageFadeInClass = classNames({
       "fadeIn": imageLoaded === true
     })

@@ -6,7 +6,6 @@ import classNames from 'classnames'
 
 import { getUsers, getItems, getItemDetails } from '../actions/index'
 
-import Header from '../utils/header'
 import Loader from '../utils/loader'
 
 import ListItem from './listItem'
