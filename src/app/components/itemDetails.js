@@ -19,7 +19,7 @@ class ItemDetails extends Component {
 
 		return (
 			<Fragment>
-				<div className="row details">
+				<div className="row featured-image-details">
 					<div className="col">
 						<ImageLoader
 							imageSrc={getItem.url}

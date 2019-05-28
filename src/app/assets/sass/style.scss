@@ -28,18 +28,6 @@ h1, h2, h3, h4, h5 {
 
 }
 
-h1 {
-
-	font-size: 6rem;
-
-	@media (max-width: $mobileLargePortrait) {
-	
-		font-size: 5rem;		
-
-	}
-
-}
-
 h2 {
 
 	font-size: 2.5rem;
@@ -50,12 +38,6 @@ header {
 
 	padding: 30px 15px;
 	text-align: center;
-
-	h1 {
-
-		margin: 0 0 -15px 0;
-
-	}
 
 	img {
 
@@ -96,6 +78,18 @@ img.fadeOut {
 	position: sticky;
 	top: 15px;
 	text-align: center;
+	transition: all 0.3s;
+
+	h2 {
+
+		background: $pink2;
+		color: $white;
+		padding: 5px;
+		margin: 0;
+		border-top-right-radius: .25rem;
+		border-top-left-radius: .25rem;
+
+	}
 
 	.list-group {
 		
@@ -103,7 +97,8 @@ img.fadeOut {
 		max-height: 80vh;
 		overflow-y: scroll;
 		border: 1px solid $pink2;
-		border-radius: .25rem;
+		border-bottom-right-radius: .25rem;
+		border-bottom-left-radius: .25rem;
 		text-align: left;
 
 		.list-group-item {
@@ -125,9 +120,67 @@ img.fadeOut {
 
 	}
 
+	@media (max-width: $mobileLargePortrait) {
+
+		background: rgba($white, 0.9);
+		position: fixed;
+		width: 80%;
+		top: 0;
+		left: -85%;
+		bottom: 0;
+		padding: 15px;
+		z-index: 9998;
+		box-shadow: $blackBoxShadow;
+		border-top-right-radius: .25rem;
+		border-bottom-right-radius: .25rem;
+
+		.list-group {
+
+			max-height: 100vh;
+
+		}
+
+	}
+
 }
 
-.features-images {
+.featured-users.open {
+
+	left: 0;
+	transition: all 0.3s;
+
+}
+
+.featured-users-toggle {
+
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 50vh;
+	left: 0;
+	background: $pink1;
+	border-top-right-radius: 50%;
+	border-bottom-right-radius: 50%;
+	width: 40px;
+	height: 40px;
+	z-index: 9999;
+	text-align: center;
+	opacity: 0;
+	color: $white;
+	transition: all 0.3s;
+	box-shadow: $blackBoxShadow;
+	cursor: pointer;
+
+	@media (max-width: $mobileLargePortrait) {
+
+		opacity: 1;
+
+	}
+
+}
+
+.featured-images {
 
 	text-align: center;
 
@@ -184,12 +237,18 @@ img.fadeOut {
 
 }
 
-.details {
+.featured-image-details {
 
 	img {
 
 		box-shadow: $blackBoxShadow;
 		border-radius: .25rem;
+
+	}
+
+	.loader.content {
+
+		min-height: 50vh;
 
 	}
 

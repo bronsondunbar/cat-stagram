@@ -2,9 +2,11 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import classNames from 'classnames'
 
 import { getUsers, getItems, getItemDetails } from '../actions/index'
 
+import Header from '../utils/header'
 import Loader from '../utils/loader'
 
 import ListItem from './listItem'
@@ -14,7 +16,8 @@ class defaultPage extends Component {
     super(props)
 
     this.state = {
-      isLoading: false
+      isLoading: false,
+      featuredUsersToggle: false
     }
 
     this.goToItem = this.goToItem.bind(this)
@@ -80,7 +83,16 @@ class defaultPage extends Component {
 
 	render () {
 		const { getUsers, getItems } = this.props
-		const { isLoading } = this.state
+		const { isLoading, featuredUsersToggle } = this.state
+
+		const featuredUsersClass = classNames("featured-users", {
+			"open": featuredUsersToggle
+		})
+
+		const featuredUsersToggleClass = classNames("fas", {
+			"fa-chevron-right": !featuredUsersToggle,
+			"fa-chevron-left": featuredUsersToggle,
+		})
 
 		return (
 			<Fragment>
@@ -89,9 +101,16 @@ class defaultPage extends Component {
             status={"Please wait..."} />
         }
 
+        <div
+        	className="featured-users-toggle"
+        	onClick={() => this.setState({ featuredUsersToggle: !this.state.featuredUsersToggle })}>
+        	<i className={featuredUsersToggleClass}></i>
+        </div>
+
 				<div className="row">
 					<div className="col users">
-						<div className="featured-users">
+						<div className={featuredUsersClass}>
+							<h2>Most Loved Users</h2>
 							<ul className="list-group">
 								{getUsers && getUsers.length > 0 && getUsers.map((user, index) => {
 									return (
@@ -107,7 +126,7 @@ class defaultPage extends Component {
 						</div>
 					</div>
 
-					<div className="col-md-9 col-12 features-images">
+					<div className="col-md-9 col-12 featured-images">
 						<div className="row">
 							{getItems && getItems.length > 0 && getItems.map((item, index) => {
 					      return (
