@@ -40,7 +40,7 @@ class App extends Component {
         dispatch(getUsers(data.results))
       })
 
-    const request = new Request("https://api.thecatapi.com/v1/images/search?limit=10&size=small", {
+    const request = new Request("https://api.thecatapi.com/v1/images/search?limit=10&size=medium", {
       headers: new Headers({
         "x-api-key": "15bd9057-cbff-4df5-a01c-bc875c2e55a2"
       })

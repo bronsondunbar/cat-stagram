@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 import { getItemDetails } from '../actions/index'
 
+import ImageLoader from './imageLoader'
 import Loader from '../utils/loader'
 
 class ItemDetails extends Component {
@@ -25,12 +26,10 @@ class ItemDetails extends Component {
 				}
 
 				<div className="row details">
-					<div className="col ">
-						<img
-							className="img-fluid"
-							loading="lazy"
-							alt={getItem.id}
-							src={getItem.url} />
+					<div className="col">
+						<ImageLoader
+							imageSrc={getItem.url}
+							imageTitle={getItem.id} />
 					</div>
 
 					<div className="col">

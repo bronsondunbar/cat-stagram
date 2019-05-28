@@ -69,9 +69,9 @@ class defaultPage extends Component {
 					      		key={item.id}
 					      		index={index}
 					      		id={item.id}
-					      		image={item.url}
-					      		title={`Image ${index}`}
-					      		description={`This is the description for Image ${index}, it's a really cool image, bask in its gloriousness`}
+					      		imageSrc={item.url}
+					      		imageTitle={`Image ${index}`}
+					      		imageDescription={`This is the description for Image ${index}, it's a really cool image, bask in its gloriousness`}
 					      		goToItem={this.goToItem} />
 					      )
 					    })}

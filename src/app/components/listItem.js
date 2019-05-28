@@ -2,20 +2,29 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import classNames from 'classnames'
+
+import ImageLoader from './imageLoader'
+
+import defaultSvg from '../assets/svg/default.svg'
 
 class ListItem extends Component {
 	render () {
-		const { id, index, image, title, description, goToItem } = this.props
+		const { id, index, imageSrc, imageTitle, imageDescription, goToItem } = this.props
 
 		return (
 			<div className="col-4">
         <div className="card">
           <div
-            className="card-img-top"
-            style={{backgroundImage: `url(${image})`}} />
+            className="card-img-top">
+            <ImageLoader
+              imageSrc={imageSrc}
+              imageTitle={imageTitle} />
+          </div>
+
           <div className="card-body">
-            <h3 className="card-title">{title}</h3>
-            <p>{description}</p>
+            <h3 className="card-title">{imageTitle}</h3>
+            <p>{imageDescription}</p>
             <button
               type="button"
               className="btn btn-primary"
