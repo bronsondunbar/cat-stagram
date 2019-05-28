@@ -13,7 +13,7 @@ class ListItem extends Component {
 		const { id, index, imageSrc, imageTitle, imageDescription, goToItem } = this.props
 
 		return (
-			<div className="col-4">
+			<div className="col-md-4 col-12">
         <div className="card">
           <div
             className="card-img-top">

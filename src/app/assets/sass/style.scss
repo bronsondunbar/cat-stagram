@@ -9,6 +9,11 @@ $pink2: #f5b0b3;
 
 $blackBoxShadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.31);
 
+$tabletLandscape: 1024px;
+$tabletPortrait: 768px;
+$mobileLargeLandscape: 736px;
+$mobileLargePortrait: 425px;
+
 body {
 
 	font-family: 'Montserrat', sans-serif;
@@ -26,6 +31,12 @@ h1, h2, h3, h4, h5 {
 h1 {
 
 	font-size: 6rem;
+
+	@media (max-width: $mobileLargePortrait) {
+	
+		font-size: 5rem;		
+
+	}
 
 }
 
@@ -57,6 +68,7 @@ header {
 img {
 
 	margin: 0 auto;
+	transition: all 0.5s;
 
 }
 
@@ -74,7 +86,8 @@ img.fadeIn {
 img.fadeOut {
 
 	opacity: 0;
-	animation: fade-out 2s ease;
+	animation: fadeOut 1s;
+	z-index: -1;
 
 }
 
@@ -85,7 +98,8 @@ img.fadeOut {
 	text-align: center;
 
 	.list-group {
-	
+		
+		background: lighten($pink2, 15%);
 		max-height: 80vh;
 		overflow-y: scroll;
 		border: 1px solid $pink2;
@@ -94,7 +108,9 @@ img.fadeOut {
 
 		.list-group-item {
 
+			background: none;
 			border: none;
+			color: $pink2;
 			border-bottom: 1px solid $pink2;
 			margin-bottom: 0;
 
@@ -125,6 +141,7 @@ img.fadeOut {
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			min-height: 150px;
 			max-height: 150px;
 			overflow: hidden;
 
@@ -190,6 +207,13 @@ img.fadeOut {
 	left: 0;
 	right: 0;
 	bottom: 0;
+
+}
+
+.loader.content {
+
+	background: lighten($gray, 40%);
+	z-index: 2;
 
 }
 

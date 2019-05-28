@@ -45,7 +45,6 @@ class defaultPage extends Component {
 				<div className="row">
 					<div className="col users">
 						<div className="featured-users">
-							<h2>Top 250 users</h2>
 							<ul className="list-group">
 								{getUsers && getUsers.length > 0 && getUsers.map((user, index) => {
 									return (
@@ -61,7 +60,7 @@ class defaultPage extends Component {
 						</div>
 					</div>
 
-					<div className="col-9 features-images">
+					<div className="col-md-9 col-12 features-images">
 						<div className="row">
 							{getItems && getItems.length > 0 && getItems.map((item, index) => {
 					      return (

@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import classNames from 'classnames'
 
+import Loader from '../utils/loader'
+
 import defaultSvg from '../assets/svg/default.svg'
 
 export default class imageLoader extends Component {
@@ -26,10 +28,11 @@ export default class imageLoader extends Component {
 
 		return (
       <Fragment>
-        <img
-          className={imageFadeOutClass}
-          alt={imageTitle}
-          src={defaultSvg} />
+        {!imageLoaded &&
+          <Loader
+            status={"Please wait..."}
+            isContent={true} />
+        }
 
         <img
           className={imageFadeInClass}
