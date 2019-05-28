@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/cat-stagram/static/css/main.1ae45a1d.chunk.css",
+    "main.js": "/cat-stagram/static/js/main.82187c3d.chunk.js",
+    "main.js.map": "/cat-stagram/static/js/main.82187c3d.chunk.js.map",
+    "runtime~main.js": "/cat-stagram/static/js/runtime~main.f3aa764d.js",
+    "runtime~main.js.map": "/cat-stagram/static/js/runtime~main.f3aa764d.js.map",
+    "static/css/2.266e55a5.chunk.css": "/cat-stagram/static/css/2.266e55a5.chunk.css",
+    "static/js/2.011ae6a7.chunk.js": "/cat-stagram/static/js/2.011ae6a7.chunk.js",
+    "static/js/2.011ae6a7.chunk.js.map": "/cat-stagram/static/js/2.011ae6a7.chunk.js.map",
+    "index.html": "/cat-stagram/index.html",
+    "precache-manifest.2f11b545a207cb4d040b35735eb90e37.js": "/cat-stagram/precache-manifest.2f11b545a207cb4d040b35735eb90e37.js",
+    "service-worker.js": "/cat-stagram/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/cat-stagram/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.1ae45a1d.chunk.css.map": "/cat-stagram/static/css/main.1ae45a1d.chunk.css.map",
+    "static/media/cat.stagram.lg.svg": "/cat-stagram/static/media/cat.stagram.lg.ceb313a4.svg",
+    "static/media/cat.stagram.sm.svg": "/cat-stagram/static/media/cat.stagram.sm.dae67bec.svg"
+  }
+}
